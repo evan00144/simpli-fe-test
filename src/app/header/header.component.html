@@ -1,18 +1,20 @@
-<nav class="navbar navbar-expand-lg navbar-dark position-sticky sticky-top bg-dark">
+<nav
+  class="navbar navbar-expand-lg navbar-dark position-sticky sticky-top bg-dark"
+>
   <div class="container">
     <a class="navbar-brand" routerLink="/">Movie Database</a>
     <button
       class="navbar-toggler"
       type="button"
-      data-toggle="collapse"
-      data-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
       aria-label="Toggle navigation"
+      (click)="collapse()"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="navbar-collapse" [ngClass]="{'collapse':collapsed}" id="navbarNavAltMarkup">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" routerLink="/">Home</a>
