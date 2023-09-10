@@ -2,4 +2,4 @@
 
 - npm install
 
--ng serve --o
+- ng serve --o
