@@ -8,7 +8,7 @@
   >
     <div class="row g-4">
       <div
-        class="col-12 col-sm-6 col-lg-4 col-xl-3"
+        class="col-6 col-sm-6 col-lg-4 col-xl-3"
         *ngFor="let movie of movies"
       >
         <div class="card h-100 mb-4">
@@ -32,7 +32,7 @@
               ></i>
             </div>
             <div
-              class="card-text"
+              class="card-text d-sm-block d-none"
               style="font-size: 0.8rem"
               [ngbTooltip]="movie.overview"
               [placement]="'top'"
