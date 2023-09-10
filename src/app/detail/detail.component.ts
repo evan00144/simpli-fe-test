@@ -8,7 +8,7 @@ import { MovieService } from '../movie.service';
   styleUrls: ['./detail.component.scss'],
 })
 export class DetailComponent {
-  movie: any; // Define a property to store movie details
+  movie: any;
   id: any;
   isLoading: boolean = false;
 
@@ -16,11 +16,9 @@ export class DetailComponent {
     private route: ActivatedRoute,
     private movieService: MovieService,
     private router: Router
-
   ) {}
 
   ngOnInit(): void {
-    // Retrieve movie data from route parameters
     this.route.paramMap.subscribe((params) => {
       this.id = params.get('id');
     });
@@ -31,22 +29,19 @@ export class DetailComponent {
     });
   }
 
-  // Define a method to convert genre IDs to genre names based on your data
   getGenreName(genre: any) {
     return genre?.name;
   }
 
   getBackdropUrl(backdropPath: string): string {
     if (!backdropPath) {
-      // Provide a fallback image or handle the case where backdropPath is null or empty
       return 'url-to-fallback-image.jpg';
     }
 
-    const baseUrl = 'https://image.tmdb.org/t/p/original'; // Adjust the base URL as needed
+    const baseUrl = 'https://image.tmdb.org/t/p/original';
     return baseUrl + backdropPath;
   }
   goBack() {
-    this.router.navigate(['/']); // Navigate to the home page or the appropriate route
+    this.router.navigate(['/']);
   }
-
 }

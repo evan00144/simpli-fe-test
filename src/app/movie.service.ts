@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class MovieService {
   private token =
-    'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjYjczMjBiMDllYTFjYTNjNmM5MzQyMjhmZGFhN2VhMiIsInN1YiI6IjY0ZmQ0OTMyZGI0ZWQ2MTAzODU0OTFkNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZJc5FByDZQ-KAJ6aZh3wu9uxB2WmEj_PQyRB2nzKw8o'; // Replace with your API key
+    'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjYjczMjBiMDllYTFjYTNjNmM5MzQyMjhmZGFhN2VhMiIsInN1YiI6IjY0ZmQ0OTMyZGI0ZWQ2MTAzODU0OTFkNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZJc5FByDZQ-KAJ6aZh3wu9uxB2WmEj_PQyRB2nzKw8o';
 
   constructor(private http: HttpClient) {}
 
@@ -15,7 +15,7 @@ export class MovieService {
     language: 'en-US',
   };
   headers = new HttpHeaders({
-    Authorization: `Bearer ${this.token}`, // Assuming your API key is in a Bearer format
+    Authorization: `Bearer ${this.token}`,
   });
   requestOptions = {
     headers: this.headers,
@@ -24,7 +24,7 @@ export class MovieService {
     },
   };
 
-  getNowPlayingMovies(page:number): Observable<any> {
+  getNowPlayingMovies(page: number): Observable<any> {
     const url = `https://api.themoviedb.org/3/movie/now_playing?page=${page}`;
 
     return this.http.get(url, this.requestOptions);

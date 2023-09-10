@@ -37,22 +37,22 @@ export class HomeComponent implements OnInit {
 
 
   loadMovies() {
-    this.isLoading = true; // Set loading flag to true
+    this.isLoading = true; 
     setTimeout(() => {
       this.movieService
         .getNowPlayingMovies(this.page)
         .subscribe((data: any) => {
           this.movies.push(...data.results);
           this.totalPages = data.total_pages;
-          this.isLoading = false; // Set loading flag to false when data is loaded
+          this.isLoading = false; 
         });
     }, 1000);
   }
 
   onScroll(): void {
     if (this.page < this.totalPages) {
-      this.page++; // Increment the page number
-      this.loadMovies(); // Load more movies
+      this.page++; 
+      this.loadMovies(); 
     }
   }
 }
