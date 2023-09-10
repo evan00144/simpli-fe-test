@@ -1,0 +1,35 @@
+.movie-description {
+  max-height: 4.8em; /* Adjust this value as needed to control the number of lines displayed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.8rem;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+a{
+  text-decoration: none;
+}
+.loading-spinner-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  height: 100%;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Add a semi-transparent background overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure the spinner appears on top of other content */
+}
+
+.yellow{
+  color:#ffc107
+}

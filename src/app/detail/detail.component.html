@@ -1,0 +1,42 @@
+<div
+  class="div"
+  [style.background-image]="'url(' + getBackdropUrl(movie?.backdrop_path) + ')'"
+  style="background-size:cover ;"
+>
+  <div class="container py-4">
+    <button (click)="goBack()" class="btn mb-3 btn-secondary">Back</button>
+
+    <div class="glass-card">
+      <div class="row">
+        <div class="col-md-4">
+          <img
+            src="https://image.tmdb.org/t/p/w400/{{ movie?.poster_path }}"
+            class="img-fluid"
+            alt="{{ movie?.title }}"
+          />
+        </div>
+        <div class="col-md-8">
+          <h2>{{ movie?.title }}</h2>
+          <p class="text-muted">Release Date: {{ movie?.release_date }}</p>
+          <h4>Overview</h4>
+          <p>{{ movie?.overview }}</p>
+          <h4>Rating</h4>
+          <div class="mb-2" style="font-size: 0.7rem">
+            Rating : {{ movie?.vote_average }}/10
+          </div>
+          <h4>Genres</h4>
+          <div>
+            <span
+              *ngFor="let genre of movie?.genres"
+              class="badge bg-secondary me-2"
+              >{{ genre.name }}</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isLoading" class="loading-spinner-container">
+    <app-loading-spinner class="custom-spinner"></app-loading-spinner>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="container py-4">
+  <h1 class="mb-3">Movie List</h1>
+  <div
+    infiniteScroll
+    [infiniteScrollDistance]="0"
+    [infiniteScrollThrottle]="100"
+    (scrolled)="onScroll()"
+  >
+    <div class="row g-4">
+      <div
+        class="col-12 col-sm-6 col-lg-4 col-xl-3"
+        *ngFor="let movie of movies"
+      >
+        <div class="card h-100 mb-4">
+          <img
+            src="https://image.tmdb.org/t/p/w400/{{ movie.poster_path }}"
+            class="card-img-top"
+            alt="{{ movie.title }}"
+          />
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div>
+                <h5 class="card-title mb-0">{{ movie.title }}</h5>
+                <div class="mb-2" style="font-size: 0.7rem">
+                  Rating : {{ movie.vote_average }}/10
+                </div>
+              </div>
+              <i
+                (click)="addToFavorites(movie)"
+                class=" fa-star cursor-pointer"
+                [ngClass]="{'fas': isFavorite(movie), 'far': !isFavorite(movie),'yellow': isFavorite(movie)}"
+              ></i>
+            </div>
+            <div
+              class="card-text"
+              style="font-size: 0.8rem"
+              [ngbTooltip]="movie.overview"
+              [placement]="'top'"
+              [triggers]="'mouseenter:mouseleave'"
+            >
+              {{ movie.overview | truncate : 100 }}
+            </div>
+            <a [routerLink]="['/detail', movie.id]" class="float-end"> View Details </a>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted" style="font-size: 0.6rem"
+              >Release Date: {{ movie.release_date }}</small
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isLoading" class="loading-spinner-container">
+    <app-loading-spinner class="custom-spinner"></app-loading-spinner>
+  </div>
+</div>
