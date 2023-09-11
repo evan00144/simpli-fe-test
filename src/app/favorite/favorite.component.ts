@@ -15,6 +15,14 @@ export class FavoriteComponent {
   loadMovies() {
     this.movies = this.favoriteService.getFavorites();
   }
+  getBackdropUrl(backdropPath: string): string {
+    if (!backdropPath) {
+      return 'url-to-fallback-image.jpg';
+    }
+
+    const baseUrl = 'https://image.tmdb.org/t/p/original';
+    return baseUrl + backdropPath;
+  }
 
   addToFavorites(movie: any): void {
     const favorites = this.favoriteService.getFavorites();

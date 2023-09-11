@@ -20,6 +20,14 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.loadMovies();
   }
+  getBackdropUrl(backdropPath: string): string {
+    if (!backdropPath) {
+      return 'url-to-fallback-image.jpg';
+    }
+
+    const baseUrl = 'https://image.tmdb.org/t/p/original';
+    return baseUrl + backdropPath;
+  }
   addToFavorites(movie: any): void {
     const favorites = this.favoriteService.getFavorites();
     if (favorites.find((e) => e.id === movie.id)) {
