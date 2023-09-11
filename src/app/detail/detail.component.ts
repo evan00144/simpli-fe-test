@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../movie.service';
 
@@ -6,6 +6,8 @@ import { MovieService } from '../movie.service';
   selector: 'app-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss'],
+  encapsulation: ViewEncapsulation.None
+
 })
 export class DetailComponent {
   movie: any;

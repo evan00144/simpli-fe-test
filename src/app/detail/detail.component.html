@@ -1,21 +1,21 @@
 <div
-  class="div"
+  class=""
   [style.background-image]="'url(' + getBackdropUrl(movie?.backdrop_path) + ')'"
-  style="background-size:cover ;"
+  style="background-size:cover ;flex:1;" 
 >
   <div class="container py-4">
     <button (click)="goBack()" class="btn mb-3 btn-secondary">Back</button>
 
     <div class="glass-card">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-12 col-md-4 ">
           <img
             src="https://image.tmdb.org/t/p/w400/{{ movie?.poster_path }}"
-            class="img-fluid"
+            class="img-fluid w-100"
             alt="{{ movie?.title }}"
           />
         </div>
-        <div class="col-md-8">
+        <div class="col-12 col-md-8">
           <h2>{{ movie?.title }}</h2>
           <p class="text-muted">Release Date: {{ movie?.release_date }}</p>
           <h4>Overview</h4>

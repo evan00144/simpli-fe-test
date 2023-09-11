@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+router-outlet.router-flex + *{
+    display: flex;
+    flex:1;
+    flex-direction: column;
+}
+.router-flex{
+    padding-top: 56px;
+}
+
+.yellow{
+    color:#ffc107
+  }
